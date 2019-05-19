@@ -26,7 +26,11 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragment, new HomeFragment()).commit();
         Toolbar toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
+
+        getSupportActionBar().setTitle("Company Profile App");
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,10 +93,14 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragment, new HomeFragment()).commit();
+            getSupportActionBar().setTitle("Company Profile App");
         } else if (id == R.id.nav_gallery) {
             getSupportFragmentManager().beginTransaction().replace(R.id.layout_for_fragment, new GalleryFragment()).commit();
+            getSupportActionBar().setTitle("Galery");
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_service) {
+            Intent pindah = new Intent(MainActivity.this, ServiceActivity.class);
+            startActivity(pindah);
 
         } else if (id == R.id.nav_web) {
             Intent pindah = new Intent(MainActivity.this, WebActivity.class);
